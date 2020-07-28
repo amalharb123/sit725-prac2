@@ -10,11 +10,11 @@ app.get('/', function(req, res) {
 
 app.use(express.static(__dirname + '/public'))
 
-var adder = function(num1, num2) {
+var add = function(num1, num2) {
     var result = num1 + num2;
     return result;
 }
-var subtractor = function(num1, num2) {
+var sub = function(num1, num2) {
     var result = num1 - num2;
     return result;
 }
@@ -30,21 +30,21 @@ app.get('/test', function(req, res) {
     res.send('Hello you hit me! ' + username);
 })
 
-app.get('/adder', function(req, res) {
+app.get('/add', function(req, res) {
     var num1 = parseInt(req.query.num1);
     var num2 = parseInt(req.query.num2);
-    var result = adder(num1, num2);
+    var result = add(num1, num2);
     res.send('The result is: ' + result);
 })
 
-app.get('/subtractor', function(req, res) {
+app.get('/sub', function(req, res) {
     var num1 = parseInt(req.query.num1);
     var num2 = parseInt(req.query.num2);
-    var result = subtractor(num1, num2);
+    var result = sub(num1, num2);
     res.send('The result is: ' + result);
 })
 
-app.get('/AccountHolders', function(req, res) {
+app.get('/Accounts', function(req, res) {
     res.send(accounts);
 })
 
